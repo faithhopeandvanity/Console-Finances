@@ -85,6 +85,7 @@ var finances = [
     ["Dec-2016", 60988],
     ["Jan-2017", 138230],
     ["Feb-2017", 671099],
+    //   0          1
 ];
 
 //The net total amount of Profit/Losses over the entire period.
@@ -118,10 +119,12 @@ var finances = [
 //current data point DONE
 //previous data point DONE
 
+console.log("Financial Analysis");
+
 const numberMonths = finances.length;
 
 //display how many months in the dataset
-console.log(`There are ${numberMonths} months in this dataset.`);
+console.log(`Total months: ${numberMonths} `);
 
 let netTotal = 0;
 
@@ -129,31 +132,45 @@ let netTotal = 0;
 for (let i = 0; i < finances.length; i++) {
     var currentMonth = finances[i][1];
     netTotal += currentMonth;
-    console.log(`net total is: ${netTotal}`);
 }
+console.log(`Total: ${netTotal}`);
 
 //establish 2nd month
 if ((finances[1], [1])) {
     console.log("ready to go");
 }
-//average of the changes (rounded to nearest integer as this is measured in currency)
-let averageChange = Math.round(netTotal / (numberMonths - 1));
-console.log(`The average month-on-month change is ${averageChange}`);
 
-// function = find positives
-const profitNumbers = finances.filter(function (value) {
-    return value >= 0;
-});
-console.log(profitNumbers);
+const monthlyChange = [];
+//average of the changes (rounded to nearest integer as this is measured in currency)
+for (let i = finances.length - 1; i > 0; i--) {
+    var monthA = finances[i][0];
+    var monthB = finances[i - 1][0];
+
+    var amountA = finances[i][1];
+    var amountB = finances[i - 1][1];
+
+    var change = amountA - amountB;
+
+    // console.log(change)
+    monthlyChange.push(change);
+}
+
+var monthlyChangeTotal = 0;
+
+for (i = 0; i < monthlyChange.length; i++) {
+    var currentChange = monthlyChange[i];
+    monthlyChangeTotal += currentChange;
+}
+
+let averageChange =
+    Math.round((monthlyChangeTotal / (numberMonths - 1)) * 100) / 100;
+console.log(`Average Change: ${averageChange}`);
 
 //greatest profit
-let greatestInc = finances.filter(function (value) {
-    return value.max;
-});
-console.log(`Greatest month-on-month profit is ${greatestInc}.`);
+const greatestInc = Math.max(...monthlyChange);
+
+console.log(`Greatest increase in Profits/Losses: ${greatestInc}.`);
 
 //greatest loss
-// let greatestLoss = finances.filter(function (value) {
-//     return value.min;
-//     console.log(`greatest month-on-month loss is ${greatestLoss}`);
-// });
+const greatestLoss = Math.min(...monthlyChange);
+console.log(`Greatest decrease in Profits/Losses: ${greatestLoss}.`);
