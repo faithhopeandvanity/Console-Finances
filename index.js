@@ -112,7 +112,7 @@ var finances = [
 //rolling total of profits DONE
 //greatest increase (month and amount)
 //greatest decrease (month and amount)
-//average of the changes
+//average of the changes DONE
 
 //variables declared inside the loop:
 //current data point DONE
@@ -136,7 +136,7 @@ for (let i = 0; i < finances.length; i++) {
 if ((finances[1], [1])) {
     console.log("ready to go");
 }
-//average change (rounded to nearest integer as this is measured in currency)
+//average of the changes (rounded to nearest integer as this is measured in currency)
 let averageChange = Math.round(netTotal / (numberMonths - 1));
 console.log(`The average month-on-month change is ${averageChange}`);
 
