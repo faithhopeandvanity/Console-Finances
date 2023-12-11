@@ -87,13 +87,6 @@ var finances = [
     ["Feb-2017", 671099],
 ];
 
-//You have been given a dataset composed of arrays with two fields, Date and Profit/Losses.
-
-//Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
-//The total number of months included in the dataset.
-//finances.length
-
 //The net total amount of Profit/Losses over the entire period.
 //variable for profits
 //variable for losses
@@ -104,8 +97,6 @@ var finances = [
 //need a variable for the average
 //that will use the established variables
 
-//You will need to track what the total change in Profit/Losses are from month to month and then find the average.
-//(Total/(Number of months - 1))
 //The greatest increase in Profit/Losses (date and amount) over the entire period.
 //variable for greatest increase
 //on each iteration, compare the current change to what's currently stored
@@ -117,23 +108,52 @@ var finances = [
 //if the loss is greater, replace what's currently stored in the variable.
 
 //variables:
-//total months
-//rolling total of profits
+//total months DONE
+//rolling total of profits DONE
 //greatest increase (month and amount)
 //greatest decrease (month and amount)
 //average of the changes
 
 //variables declared inside the loop:
-//current data point
-//previous data point
+//current data point DONE
+//previous data point DONE
 
-finances.length
+const numberMonths = finances.length;
 
-console.log("There are ---- months in this dataset.")
+//display how many months in the dataset
+console.log(`There are ${numberMonths} months in this dataset.`);
 
-let profits
-let losses
+let netTotal = 0;
 
-for (finances i=0 i<finances.length i++)
+//for loop for creating rolling accumulation to find NET TOTAL
+for (let i = 0; i < finances.length; i++) {
+    var currentMonth = finances[i][1];
+    netTotal += currentMonth;
+    console.log(`net total is: ${netTotal}`);
+}
 
-if 
+//establish 2nd month
+if ((finances[1], [1])) {
+    console.log("ready to go");
+}
+//average change (rounded to nearest integer as this is measured in currency)
+let averageChange = Math.round(netTotal / (numberMonths - 1));
+console.log(`The average month-on-month change is ${averageChange}`);
+
+// function = find positives
+const profitNumbers = finances.filter(function (value) {
+    return value >= 0;
+});
+console.log(profitNumbers);
+
+//greatest profit
+let greatestInc = finances.filter(function (value) {
+    return value.max;
+});
+console.log(`Greatest month-on-month profit is ${greatestInc}.`);
+
+//greatest loss
+// let greatestLoss = finances.filter(function (value) {
+//     return value.min;
+//     console.log(`greatest month-on-month loss is ${greatestLoss}`);
+// });
