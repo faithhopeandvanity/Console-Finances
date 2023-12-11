@@ -88,37 +88,6 @@ var finances = [
     //   0          1
 ];
 
-//The net total amount of Profit/Losses over the entire period.
-//variable for profits
-//variable for losses
-//need to compare data from current loop to previous loop's
-//need an if statement to make sure we're on at least month 2 (array index 1) before calculating P/L
-
-//The average of the changes in Profit/Losses over the entire period.
-//need a variable for the average
-//that will use the established variables
-
-//The greatest increase in Profit/Losses (date and amount) over the entire period.
-//variable for greatest increase
-//on each iteration, compare the current change to what's currently stored
-//if the increase is greater, replace what's currently stored in the variable.
-
-//The greatest decrease in Profit/Losses (date and amount) over the entire period.
-//variable for greatest decrease
-//on each iteration, compare the current change to what's currently stored
-//if the loss is greater, replace what's currently stored in the variable.
-
-//variables:
-//total months DONE
-//rolling total of profits DONE
-//greatest increase (month and amount)
-//greatest decrease (month and amount)
-//average of the changes DONE
-
-//variables declared inside the loop:
-//current data point DONE
-//previous data point DONE
-
 console.log("Financial Analysis");
 
 const numberMonths = finances.length;
@@ -137,7 +106,7 @@ console.log(`Total: ${netTotal}`);
 
 //establish 2nd month
 if ((finances[1], [1])) {
-    console.log("ready to go");
+    ;
 }
 
 const monthlyChange = [];
